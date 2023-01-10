@@ -228,6 +228,7 @@ func loadCredentials(opts *withCredentials) (grpc.DialOption, error) {
 	}
 
 	cfg := &tls.Config{
+		MinVersion: tls.VersionTLS12,
 		ServerName: opts.ServerName,
 		RootCAs:    certPool,
 	}

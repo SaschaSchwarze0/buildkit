@@ -83,7 +83,9 @@ func loadTLSConfig(c config.RegistryConfig) (*tls.Config, error) {
 		}
 	}
 
-	tc := &tls.Config{}
+	tc := &tls.Config{
+		MinVersion: tls.VersionTLS12,
+	}
 	if len(c.RootCAs) > 0 {
 		systemPool, err := x509.SystemCertPool()
 		if err != nil {
